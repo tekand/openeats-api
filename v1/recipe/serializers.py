@@ -27,9 +27,9 @@ class CustomImageField(ImageField):
                 # If the file has not been saved it may not have a URL.
                 return None
             url = value.url
-            request = self.context.get('request', None)
-            if request is not None:
-                return request.build_absolute_uri(url)
+            #request = self.context.get('request', None)
+            #if request is not None:
+            #    return request.build_absolute_uri(url)
             return url
 
         return super(ImageField, self).to_representation(value)
