@@ -81,6 +81,10 @@ class MiniBrowseViewSet(viewsets.mixins.ListModelMixin,
     serializer_class = serializers.MiniBrowseSerializer
 
     def list(self, request, *args, **kwargs):
+
+        print('--------------------')
+        print(request.META)
+        print('--------------------')
         # If user is anonymous, restrict recipes to public.
         if self.request.user.is_authenticated:
             qs = Recipe.objects.all()
